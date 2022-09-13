@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
             self.addTableWidget(c)
 
     def add(self):
-        id= self.id.text()
+
         nome = self.nome.text()
         telefone = self.telefone.text()
         data_recebimento = self.data_recebimento.text()
@@ -45,7 +45,6 @@ class MainWindow(QMainWindow):
 
         self.addTableWidget(novaConsulta)
         
-        self.id.clear()
         self.nome.clear()
         self.telefone.clear()
         self.data_recebimento.clear()
@@ -54,23 +53,25 @@ class MainWindow(QMainWindow):
    
     def edit(self):
         lineSel = self.tabela.currentRow()        
+        id = self.tabela.item(lineSel,0)
         n_nome = self.tabela.item(lineSel,1)
         n_telefone = self.tabela.item(lineSel,2)
         n_data_recebimento = self.tabela.item(lineSel,3)
         n_descricao = self.tabela.item(lineSel,4)
         n_data_entrega = self.tabela.item(lineSel,5)
-
+        
         n_nome = self.nome.text()
-        n_telefone = self.telefone.text
-        n_data_recebimento = self.data_recebimento.text
-        n_descricao = self.descricao.text
-        n_data_entrega = self.data_entrega.text
+        n_telefone = self.telefone.text()
+        n_data_recebimento = self.data_recebimento.text()
+        n_descricao = self.descricao.text()
+        n_data_entrega = self.data_entrega.text()
 
-        edit = Consulta(n_nome,n_telefone,n_data_recebimento,n_descricao,n_data_entrega)
+        edit = Consulta(id.text(),n_nome,n_telefone,n_data_recebimento,n_descricao,n_data_entrega)
            
         self.edicao(edit)  
         ConsultaDAO.edit(edit)
-
+       
+     
         self.nome.clear()
         self.telefone.clear()
         self.data_recebimento.clear()
