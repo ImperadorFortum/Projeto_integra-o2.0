@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
         data_entrega = self.data_entrega.text()
 
         novaConsulta = Consulta(-1, nome, telefone, data_recebimento, descricao, data_entrega)
-        id = ConsultaDAO.add(novaConsulta)
+        ConsultaDAO.add(novaConsulta)
         novaConsulta.id = id
 
         self.addTableWidget(novaConsulta)
@@ -95,7 +95,7 @@ class MainWindow(QMainWindow):
         line = self.tabela.rowCount()
         self.tabela.insertRow(line)
         
-        id = QTableWidgetItem(c.id)
+        id = QTableWidgetItem(str(c.id))
         nome = QTableWidgetItem(c.nome)
         telefone = QTableWidgetItem(c.telefone)
         data_recebimento = QTableWidgetItem(c.data_recebimento)

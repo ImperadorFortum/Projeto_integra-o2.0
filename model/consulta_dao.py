@@ -8,7 +8,7 @@ class ConsultaDAO():
         conn = connect() #cria a conexão
         cursor = conn.cursor() #manipular o banco
         SQL = "INSERT INTO Consultorias(nome,telefone,data_recebimento,descricao,data_entrega) VALUES(?,?,?,?,?)"
-        dados = [c.id,c.nome,c.telefone,c.data_recebimento,c.descricao,c.data_entrega] #lista dos dados
+        dados = [c.nome,c.telefone,c.data_recebimento,c.descricao,c.data_entrega] #lista dos dados
         cursor.execute(SQL,dados)
         # pega o ID do ultimo selecionado
         id_return = cursor.execute("SELECT  last_insert_rowid();")
