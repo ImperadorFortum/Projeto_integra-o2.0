@@ -1,6 +1,6 @@
 from dataclasses import is_dataclass
 from msilib import init_database
-from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView, QStatusBar
 from PyQt5 import uic
 
 from model.consulta import Consulta, Editar
@@ -24,10 +24,10 @@ class MainWindow(QMainWindow):
             QHeaderView.Stretch)
 
 
-        self.loadData
+        self.loadData()
 
     def loadData(self):
-        listaCon = ConsultaDAO.selectAll()
+        listaCon = ConsultaDAO.selectAll
         for c in listaCon:
             self.addTableWidget(c)
 
