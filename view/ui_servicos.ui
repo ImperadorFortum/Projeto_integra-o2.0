@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1365</width>
-    <height>730</height>
+    <width>1059</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,15 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>431</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>281</width>
+        <width>331</width>
         <height>16777215</height>
        </size>
       </property>
@@ -34,120 +40,35 @@
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>20</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
          <property name="text">
-          <string>Formulário de Consulta</string>
+          <string>Serviços</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_2">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Nome</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="nome">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Telefone</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="telefone">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Data de Recebimento</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDateTimeEdit" name="data_recebimento">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
          <property name="text">
           <string>Descrição</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="descricao">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
+        <widget class="QLineEdit" name="descricao"/>
        </item>
        <item>
-        <widget class="QLabel" name="label_5">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
+        <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>Data de Entrega</string>
+          <string>Valor</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QDateTimeEdit" name="data_entrega">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
+        <widget class="QLineEdit" name="valor"/>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -182,7 +103,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>416</height>
           </size>
          </property>
         </spacer>
@@ -199,27 +120,12 @@
       </column>
       <column>
        <property name="text">
-        <string>Nome</string>
+        <string>Descrição</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Telefone</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Data do Recebimento</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Descrição de Serviços</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Data da Entrega</string>
+        <string>Valor</string>
        </property>
       </column>
      </widget>
@@ -231,7 +137,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1365</width>
+     <width>1059</width>
      <height>21</height>
     </rect>
    </property>

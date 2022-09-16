@@ -1,5 +1,3 @@
-from dataclasses import is_dataclass
-from msilib import init_database
 from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView, QStatusBar
 from PyQt5 import uic
 
@@ -27,7 +25,7 @@ class MainWindow(QMainWindow):
         self.loadData()
 
     def loadData(self):
-        listaCon = ConsultaDAO.selectAll
+        listaCon = ConsultaDAO.selectAll()
         for c in listaCon:
             self.addTableWidget(c)
 
