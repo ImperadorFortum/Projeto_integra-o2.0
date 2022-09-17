@@ -2,7 +2,8 @@ from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView, QStatusB
 from PyQt5 import uic
 
 from controller.ui_servicos import UiServicos
-from controler.ui_consulta import UiConsulta
+from controller.ui_consulta import UiConsulta
+from theme.app_theme import DARK, LIGHT
 
 
 FILE_UI = 'view/main_window.ui'
@@ -16,13 +17,13 @@ class MainWindow(QMainWindow):
         self.pageServicos = UiServicos()
   
 
-        self.stackedWidget.addwidget(self.pageConsulta)
+        self.stackedWidget.addWidget(self.pageConsulta)
         self.stackedWidget.addWidget(self.pageServicos)
 
         self.btnConsulta.clicked.connect(self.actionMenu)
         self.btnServicos.clicked.connect(self.actionMenu)
-        self.btnLight.clicked.connect(self.actionMenu)
-        self.btnDark.clicked.connect(self.actionMenu)
+        self.btnLIGHT.clicked.connect(self.actionMenu)
+        self.btnDARK.clicked.connect(self.actionMenu)
 
     def actionMenu(self):
         btn = self.sender()
@@ -33,10 +34,10 @@ class MainWindow(QMainWindow):
         if nomeBtn == 'btnServicos':
             self.stackedWidget.setCurrentIndex(1)
 
-        if nomeBtn == 'btnLight':
+        if nomeBtn == 'btnLIGHT':
             self.setStyleSheet(LIGHT)
 
-        if nomeBtn == 'btnDark':
+        if nomeBtn == 'btnDARK':
             self.setStyleSheet(DARK)
 
 

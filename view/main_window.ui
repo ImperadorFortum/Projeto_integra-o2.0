@@ -73,21 +73,21 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSevicos">
+         <widget class="QPushButton" name="btnServicos">
           <property name="text">
            <string>Serviços</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnLight">
+         <widget class="QPushButton" name="btnLIGHT">
           <property name="text">
            <string>Light</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnDark">
+         <widget class="QPushButton" name="btnDARK">
           <property name="text">
            <string>Dark</string>
           </property>
