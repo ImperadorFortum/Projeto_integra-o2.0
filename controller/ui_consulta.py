@@ -1,9 +1,9 @@
-from mailbox import linesep
 from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QHeaderView
 from PyQt5 import uic
 
 from model.consulta import Consulta, Editar
 from model.consulta_dao import ConsultaDAO
+
 
 FILE_UI = 'view/ui_consulta.ui'
 
@@ -18,7 +18,7 @@ class UiConsulta(QWidget):
         self.delBtn.clicked.connect(self.delete)
 
     def add(self):    
-        nome = self.nome.text()
+        nome = self.nome.text()  
         telefone = self.telefone.text()
         data_recebimento = self.data_recebimento.text()
         descricao = self.descricao.text()
