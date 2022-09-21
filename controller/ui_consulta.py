@@ -79,12 +79,14 @@ class UiConsulta(QWidget):
         line = self.tabela.rowCount()
         self.tabela.insertRow(line)
         
-        nome = QTableWidgetItem(str(c.id))
+        id = QTableWidgetItem(str(c.id)) 
+        nome = QTableWidgetItem(c.nome)
         telefone = QTableWidgetItem(c.telefone)
         data_recebimento = QTableWidgetItem(c.data_recebimento)
         descricao = QTableWidgetItem(c.descricao)
         data_entrega = QTableWidgetItem(c.data_entrega)
-
+        
+        self.tabela.setItem(line, 0, id)
         self.tabela.setItem(line, 1, nome)
         self.tabela.setItem(line, 2, telefone)
         self.tabela.setItem(line, 3, data_recebimento)
@@ -93,17 +95,19 @@ class UiConsulta(QWidget):
 
     def edicao(self,c: Editar):
         lineSel = self.tabela.currentRow()
+        n_id = QTableWidgetItem(str(c.id))
         n_nome = QTableWidgetItem(c.nome)
         n_telefone = QTableWidgetItem(c.telefone)
         n_data_recebimento = QTableWidgetItem(c.data_recebimento)
         n_descricao = QTableWidgetItem(c.descricao)
         n_data_entrega = QTableWidgetItem(c.data_entrega)
-
-        self.tabela.item(lineSel,1,n_nome)
-        self.tabela.item(lineSel,2,n_telefone)
-        self.tabela.item(lineSel,3,n_data_recebimento)
-        self.tabela.item(lineSel,4,n_descricao)
-        self.tabela.item(lineSel,5,n_data_entrega)
+        
+        self.tabela.setItem(lineSel, 0, n_id)
+        self.tabela.setItem(lineSel, 1, n_nome)
+        self.tabela.setItem(lineSel, 2, n_telefone)
+        self.tabela.setItem(lineSel, 3, n_data_recebimento)
+        self.tabela.setItem(lineSel, 4, n_descricao)
+        self.tabela.setItem(lineSel, 5, n_data_entrega)
         
         
 
