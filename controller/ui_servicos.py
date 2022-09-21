@@ -1,5 +1,8 @@
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QTableWidgetItem,QHeaderView
 from PyQt5 import uic
+
+from model.consulta import Consulta,Editar
+from model.consulta_dao import ConsultaDAO
 
 FILE_UI = 'view/ui_servicos.ui'
 
@@ -8,3 +11,66 @@ class UiServicos(QWidget):
     def __init__(self):
         super(UiServicos,self). __init__()
         uic.loadUi(FILE_UI,self)
+
+        self.addBtn.clicked.connect(self.add)
+        self.editBtn.clicked.connect(self.edit)
+        self.delBtn.clicked.connect(self.delete)
+
+    def add(self):
+        lineSel = self.tabela.currentRow()
+        id = self.tabela.item(lineSel,0)
+        descricao = self.tabela.item(lineSel,1)
+        valor = self.tabela.item(lineSel,2)
+        
+        novaConsulta = (-1,descricao,valor)
+        id = ConsultaDAO.add(novaConsulta)
+        novaConsulta.id = id
+        self.addTableWidget(novaConsulta)
+
+        self.descricao.clear()
+        self.valor.clear()
+
+    def edit(self):
+        lineSel = self.tabela.currentRow()
+        id = self.tabela.item(lineSel,0)
+        n_descricao = self.tabela.item(lineSel,1)
+        n_valor = self.tabela.item(lineSel,2)
+
+        n_descricao = self.descricao.text()
+        n_valor = self.valor.text()
+
+        edit = Consulta(id.text(),n_valor,n_descricao)
+        self.edicao(edit)
+        ConsultaDAO.edit(edit)
+        
+        self.descricao.clear()
+        self.valor.clear()
+ 
+    def delete(self):
+        # pega a linha
+        lineSel = self.tabela.currentRow()
+
+        item = self.tabela.item(lineSel,0) 
+        id = item.text()
+        print(id)
+        # remove do banco
+        ConsultaDAO.delete(id) 
+        # remove a linha 
+        self.tabela.removeRow(lineSel)        
+        
+    def addTableWidget(self,c: Consulta):
+        line = self.tabela.rowCount()
+        self.tabela.insertRow(line)
+        descricao = QTableWidgetItem(str(c.id))
+        valor = QTableWidgetItem(c.valor)
+        
+        self.tabela.setItem(line,1,c.descricao)
+        self.tabela.setItem(line,2,c.valor)
+
+    def edicao(self,c: Editar):
+        lineSel = self.tabela.currentRow()
+        n_descricao = QTableWidgetItem(c.descricao)
+        n_valor = QTableWidgetItem(c.valor)
+
+        self.tabela.item(lineSel,1,c.descricao)
+        self.tabela.item(lineSel,2,c.valor)    
