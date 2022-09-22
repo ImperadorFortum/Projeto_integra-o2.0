@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QWidget, QTableWidgetItem,QHeaderView
 from PyQt5 import uic
 
-from model.consulta import Consulta,Editar
-from model.consulta_dao import ConsultaDAO
+from model.servicos import Servicos,Editar
+from model.servicos_dao import ServicosDAO
 
 FILE_UI = 'view/ui_servicos.ui'
 
@@ -23,7 +23,7 @@ class UiServicos(QWidget):
         self.loadData()
 
     def loadData(self):
-        listaCon = ConsultaDAO.selectAll()
+        listaCon = ServicosDAO.selectAll()
         for c in listaCon:
             self.addTableWidget(c)
 
@@ -34,7 +34,7 @@ class UiServicos(QWidget):
         valor = self.tabela.item(lineSel,2)
         
         novaConsulta = (-1,descricao,valor)
-        id = ConsultaDAO.add(novaConsulta)
+        id = ServicosDAO.add(novaConsulta)
         novaConsulta.id = id
         self.addTableWidget(novaConsulta)
 
@@ -50,9 +50,9 @@ class UiServicos(QWidget):
         n_descricao = self.descricao.text()
         n_valor = self.valor.text()
 
-        edit = Consulta(id.text(),n_valor,n_descricao)
+        edit = Servicos(id.text(),n_valor,n_descricao)
         self.edicao(edit)
-        ConsultaDAO.edit(edit)
+        ServicosDAO.edit(edit)
         
         self.descricao.clear()
         self.valor.clear()
@@ -65,11 +65,11 @@ class UiServicos(QWidget):
         id = item.text()
         print(id)
         # remove do banco
-        ConsultaDAO.delete(id) 
+        ServicosDAO.delete(id) 
         # remove a linha 
         self.tabela.removeRow(lineSel)        
         
-    def addTableWidget(self,c: Consulta):
+    def addTableWidget(self,c: Servicos):
         line = self.tabela.rowCount()
         self.tabela.insertRow(line)
         id = QTableWidgetItem(str(c.id))

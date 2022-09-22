@@ -1,5 +1,4 @@
-from http import server
-from db import connect
+from .db import connect
 from .servicos import Servicos
 
 class ServicosDAO():
