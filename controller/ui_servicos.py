@@ -15,6 +15,17 @@ class UiServicos(QWidget):
         self.addBtn.clicked.connect(self.add)
         self.editBtn.clicked.connect(self.edit)
         self.delBtn.clicked.connect(self.delete)
+        self.tabela.horizontalHeader().setStretchLastSection(True)
+        self.tabela.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tabela.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeToContents)
+        
+
+        self.loadData()
+
+    def loadData(self):
+        listaCon = ConsultaDAO.selectAll()
+        for c in listaCon:
+            self.addTableWidget(c)
 
     def add(self):
         lineSel = self.tabela.currentRow()
@@ -61,16 +72,20 @@ class UiServicos(QWidget):
     def addTableWidget(self,c: Consulta):
         line = self.tabela.rowCount()
         self.tabela.insertRow(line)
-        descricao = QTableWidgetItem(str(c.id))
+        id = QTableWidgetItem(str(c.id))
+        descricao = QTableWidgetItem(c.descricao)
         valor = QTableWidgetItem(c.valor)
         
-        self.tabela.setItem(line,1,c.descricao)
-        self.tabela.setItem(line,2,c.valor)
+        self.tabela.setItem(line, 0, id)
+        self.tabela.setItem(line,1, descricao)
+        self.tabela.setItem(line,2, valor)
 
     def edicao(self,c: Editar):
         lineSel = self.tabela.currentRow()
+        n_id = QTableWidgetItem(c.id)
         n_descricao = QTableWidgetItem(c.descricao)
         n_valor = QTableWidgetItem(c.valor)
-
-        self.tabela.item(lineSel,1,c.descricao)
-        self.tabela.item(lineSel,2,c.valor)    
+    
+        self.tabela.item(lineSel, 0, n_id)
+        self.tabela.item(lineSel, 1, n_descricao)
+        self.tabela.item(lineSel, 2, n_valor)    
