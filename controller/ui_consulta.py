@@ -17,6 +17,19 @@ class UiConsulta(QWidget):
         self.editBtn.clicked.connect(self.edit)
         self.delBtn.clicked.connect(self.delete)
 
+        self.tabela.horizontalHeader().setStretchLastSection(True)
+        self.tabela.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tabela.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeToContents)
+        
+
+        self.loadData()
+
+    def loadData(self):
+        listaCon = ConsultaDAO.selectAll()
+        for c in listaCon:
+            self.addTableWidget(c)
+
+
     def add(self):    
         nome = self.nome.text()  
         telefone = self.telefone.text()
