@@ -33,10 +33,10 @@ class UiServicos(QWidget):
         descricao = self.tabela.item(lineSel,1)
         valor = self.tabela.item(lineSel,2)
         
-        novaConsulta = (-1,descricao,valor)
-        id = ServicosDAO.add(novaConsulta)
-        novaConsulta.id = id
-        self.addTableWidget(novaConsulta)
+        novoServico = Servicos(-1,descricao,valor)
+        id = ServicosDAO.add(novoServico)
+        novoServico.id = id
+        self.addTableWidget(novoServico)
 
         self.descricao.clear()
         self.valor.clear()
