@@ -60,7 +60,7 @@
      <string>Senha</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="login">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -70,7 +70,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="senha">
     <property name="geometry">
      <rect>
       <x>90</x>

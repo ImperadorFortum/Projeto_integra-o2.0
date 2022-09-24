@@ -28,10 +28,8 @@ class UiServicos(QWidget):
             self.addTableWidget(c)
 
     def add(self):
-        lineSel = self.tabela.currentRow()
-        id = self.tabela.item(lineSel,0)
-        descricao = self.tabela.item(lineSel,1)
-        valor = self.tabela.item(lineSel,2)
+        descricao = self.descricao.text()
+        valor = self.valor.text()
         
         novoServico = Servicos(-1,descricao,valor)
         id = ServicosDAO.add(novoServico)
@@ -50,7 +48,7 @@ class UiServicos(QWidget):
         n_descricao = self.descricao.text()
         n_valor = self.valor.text()
 
-        edit = Servicos(id.text(),n_valor,n_descricao)
+        edit = Servicos(id.text(),n_descricao,n_valor)
         self.edicao(edit)
         ServicosDAO.edit(edit)
         
@@ -86,6 +84,6 @@ class UiServicos(QWidget):
         n_descricao = QTableWidgetItem(c.descricao)
         n_valor = QTableWidgetItem(c.valor)
     
-        self.tabela.item(lineSel, 0, n_id)
-        self.tabela.item(lineSel, 1, n_descricao)
-        self.tabela.item(lineSel, 2, n_valor)    
+        self.tabela.setItem(lineSel, 0, n_id)
+        self.tabela.setItem(lineSel, 1, n_descricao)
+        self.tabela.setItem(lineSel, 2, n_valor)    
