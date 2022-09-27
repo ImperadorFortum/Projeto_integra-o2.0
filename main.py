@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QApplication
 import sys
-from controller.main_window import MainWindow
+from controller.ui_login import UiLogin
 
 app = QApplication(sys.argv)
-janela = MainWindow()
+janela = UiLogin()
 janela.show()
 app.exec() 
