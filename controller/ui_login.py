@@ -12,17 +12,19 @@ class UiLogin(QWidget):
         uic.loadUi(FILE_UI,self)
 
         self.entrar.clicked.connect(self.Login)
+        self.janela = MainWindow()
 
     def Login(self):
-        login = 'usuario'
-        senha = 'senha'
-        if login == 'usuario' and senha == 'senha' :
+        login = 'valnormal123'
+        senha = '210998lipe'
+        if login == "login" and senha == "senha" :
             self.label_4.setText("Entrando...")
-           
-            janela = MainWindow()
-            janela.show() 
+            self.hide()
+            self.janela.show() 
         else :
             self.label_4.setText("Dados de Login Incorretos!")
+            print(login)
+            print(senha)
            
             
        
