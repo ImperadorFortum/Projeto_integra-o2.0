@@ -39,7 +39,7 @@ class UiConsulta(QWidget):
         descricao = self.descricao.text()
         data_entrega = self.data_entrega.text()
         
-        if nome =="" and telefone =="" and data_recebimento =="" and descricao =="" and data_entrega =="":
+        if nome =="" or telefone =="" or data_recebimento =="" or descricao =="" or data_entrega =="":
            print('Erro de campos vazios')
         
         else: 
