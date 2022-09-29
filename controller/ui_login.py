@@ -18,8 +18,9 @@ class UiLogin(QWidget):
         senha = 'senha'
         if login == 'usuario' and senha == 'senha' :
             self.label_4.setText("Entrando...")
-            janela = MainWindow
-            janela.show()
+           
+            janela = MainWindow()
+            janela.show() 
         else :
             self.label_4.setText("Dados de Login Incorretos!")
            
