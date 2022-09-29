@@ -1,3 +1,4 @@
+from distutils.log import error
 from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QHeaderView
 from PyQt5 import uic
 
@@ -20,7 +21,8 @@ class UiConsulta(QWidget):
         self.tabela.horizontalHeader().setStretchLastSection(True)
         self.tabela.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.tabela.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeToContents)
-        
+              
+
 
         self.loadData()
 
@@ -36,19 +38,23 @@ class UiConsulta(QWidget):
         data_recebimento = self.data_recebimento.text()
         descricao = self.descricao.text()
         data_entrega = self.data_entrega.text()
-
-        novaConsulta = Consulta(-1,nome,telefone,data_recebimento,
-                       descricao,data_entrega)
-        id = ConsultaDAO.add(novaConsulta)               
-        novaConsulta.id = id
-       
-        self.addTableWidget(novaConsulta)
         
-        self.nome.clear()
-        self.telefone.clear()
-        self.data_recebimento.clear()
-        self.descricao.clear()        
-        self.data_entrega.clear()
+        if nome =="" and telefone =="" and data_recebimento =="" and descricao =="" and data_entrega =="":
+           print('Erro de campos vazios')
+        
+        else: 
+              novaConsulta = Consulta(-1,nome,telefone,data_recebimento,
+                       descricao,data_entrega)
+              id = ConsultaDAO.add(novaConsulta)               
+              novaConsulta.id = id
+       
+              self.addTableWidget(novaConsulta)
+                
+              self.nome.clear()
+              self.telefone.clear()
+              self.data_recebimento.clear()
+              self.descricao.clear()        
+              self.data_entrega.clear()
 
     def edit(self):    
         lineSel = self.tabela.currentRow()

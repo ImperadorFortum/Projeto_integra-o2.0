@@ -73,20 +73,6 @@
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="btnLIGHT">
-            <property name="text">
-             <string>Light</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnDARK">
-            <property name="text">
-             <string>Dark</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>

@@ -17,7 +17,7 @@ class UiLogin(QWidget):
     def Login(self):
         login = self.login.text()
         senha = self.senha.text()
-        if login == 'usuario' and senha == 'senha' :
+        if login == 'valnormal123' and senha == '210998lipe' :
             self.label_4.setText("Entrando...")
             self.hide()
             self.janela.show() 
