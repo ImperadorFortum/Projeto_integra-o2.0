@@ -15,16 +15,15 @@ class UiLogin(QWidget):
         self.janela = MainWindow()
 
     def Login(self):
-        login = 'valnormal123'
-        senha = '210998lipe'
-        if login == "login" and senha == "senha" :
+        login = self.login.text()
+        senha = self.senha.text()
+        if login == 'usuario' and senha == 'senha' :
             self.label_4.setText("Entrando...")
             self.hide()
             self.janela.show() 
         else :
             self.label_4.setText("Dados de Login Incorretos!")
-            print(login)
-            print(senha)
+           
            
             
        
