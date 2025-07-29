@@ -1,4 +1,3 @@
-from distutils.log import error
 from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QHeaderView
 from PyQt5 import uic
 
