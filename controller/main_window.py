@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QHeaderView, QStatusBar
+from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 
 from controller.ui_servicos import UiServicos
